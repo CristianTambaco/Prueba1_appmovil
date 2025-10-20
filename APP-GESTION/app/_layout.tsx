@@ -1,15 +1,16 @@
-import React from "react";
-import { Stack, Tabs } from "expo-router";
-import { ExpensesProvider } from "../context/ExpensesContext";
+// app/_layout.tsx
+import React from 'react';
+import { Slot, Stack } from 'expo-router';
+import { StatusBar } from 'react-native';
+import { GastosProvider } from './context/GastosContext';
 
-export default function Layout() {
+export default function RootLayout() {
   return (
-    <ExpensesProvider>
+    <GastosProvider>
+      <StatusBar barStyle="dark-content" backgroundColor="white" />
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
       </Stack>
-    </ExpensesProvider>
+    </GastosProvider>
   );
 }
-
-// archivo adicional: app/(tabs).tsx para tabs
